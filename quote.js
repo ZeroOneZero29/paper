@@ -2,7 +2,7 @@ const axios = require('axios');
 const cheerio = require("cheerio");
 
 const URL = 'https://www.leadertask.ru/blog/150-motiviruyushhix-citat-na-kazhdyj-den'
-
+const quote = []
 
 const getQuote = async function () {
     try{
