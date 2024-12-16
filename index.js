@@ -1,8 +1,47 @@
-const news = require('./news.js')
-const quote = require('./quote.js')
+const express = require("express");
+const puppeter = require("puppeteer");
+const app = express();
+const moment = require("moment");
+moment.locale("ru");
+app.set("view engine", "ejs");
+app.use("/public", express.static("public"));
 
+app.get("/date", function (req, res) {
+  const todayDay = moment().date();
+  const todayMonth = moment().month();
+  const data = {
+    day: todayDay,
+    mounth: todayMonth,
+  };
+  res.send(data);
+});
 
+app.get("quote", function(req, res){
+  
+})
+app.listen(3000, () => {
+  console.log(3000);
+});
 
+app.get("/", function (req, res) {
+  res.render("index");
+});
+
+async function pdf() {
+  const browser = await puppeter.launch();
+  const page = await browser.newPage();
+
+  const website_url = "http://localhost:3000/";
+  await page.goto(website_url, { waitUntil: "networkidle0" });
+  await page.emulateMediaType("screen");
+
+  const pdf = await page.pdf({
+    path: "result.pdf",
+    margin: { top: "0px", right: "0px", left: "0px", bottom: "0px" },
+    format: "A4",
+  });
+  await browser.close();
+}
 
 //const getData = async() => {
 //try{
@@ -23,7 +62,6 @@ const quote = require('./quote.js')
 //}
 //}
 
-//getData(); 
-
+//getData();
 
 //let html = ejs.render('<%= heading.join(", ");%>', {heading:heading})
