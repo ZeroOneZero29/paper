@@ -2,6 +2,7 @@ const express = require("express");
 const puppeter = require("puppeteer");
 const app = express();
 const moment = require("moment");
+const newsDate = require("./public/js/backend/news");
 moment.locale("ru");
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
@@ -16,9 +17,10 @@ app.get("/date", function (req, res) {
   res.send(data);
 });
 
-app.get("quote", function(req, res){
+app.get("/news", function (req, res) {
   
-})
+});
+
 app.listen(3000, () => {
   console.log(3000);
 });
