@@ -20,9 +20,9 @@ app.get("/date", function (req, res) {
   res.send(data);
 });
 
-//app.get("/news", function (req, res) {
-//  const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
-//});
+app.get("/news", function (req, res) {
+  const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
+});
 
 app.listen(3000, () => {
   console.log(3000);
