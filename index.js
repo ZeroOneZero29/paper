@@ -8,8 +8,6 @@ moment.locale("ru");
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 
-//newsDateTwo.AxiosDate().then((res) => console.log(res) )
-
 app.get("/date", function (req, res) {
   const todayDay = moment().date();
   const todayMonth = moment().month();
@@ -24,12 +22,12 @@ app.get("/news", function (req, res) {
   const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
 });
 
-app.listen(3000, () => {
-  console.log(3000);
-});
-
 app.get("/", function (req, res) {
   res.render("index");
+});
+
+app.listen(3000, () => {
+  console.log(3000);
 });
 
 async function pdf() {
