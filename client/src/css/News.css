@@ -1,0 +1,32 @@
+.news {
+    padding-top: 35px;
+}
+.news-container {
+    max-width: 1090px;
+    margin: 0 auto;
+}
+.news_title {
+    font-size: 40px;
+    font-weight: bold;
+}
+.news-block {
+    max-width: 1040px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.news_item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.item_title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align:justify;
+}
+.item_text {
+    font-size: 20px;
+    text-align:justify;
+}

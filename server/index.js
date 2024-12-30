@@ -8,11 +8,8 @@ const cors = require("cors")
 moment.locale("ru");
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
-<<<<<<< HEAD:index.js
-=======
+
 app.use(cors())
-//newsDateTwo.AxiosDate().then((res) => console.log(res) )
->>>>>>> 1727ae28ae82d9d5f5a3b0f9ddd40d72696c23f5:server/index.js
 
 app.get("/date", function (req, res) {
   const todayDay = moment().date();
@@ -28,20 +25,15 @@ app.get("/date", function (req, res) {
 //  const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
 //});
 
-<<<<<<< HEAD:index.js
-=======
+
 app.listen(5000, () => {
   console.log(5000);
 });
 
->>>>>>> 1727ae28ae82d9d5f5a3b0f9ddd40d72696c23f5:server/index.js
 app.get("/", function (req, res) {
   res.render("index");
 });
 
-app.listen(3000, () => {
-  console.log(3000);
-});
 
 async function pdf() {
   const browser = await puppeter.launch();
