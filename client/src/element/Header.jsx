@@ -1,6 +1,37 @@
-import './css/Header.css';
+import { useEffect, useState } from "react"
+import '../css/Header.css';
+
+
 
 export default function Header() {
+
+
+  let mounth = [
+    "Января",
+    "Февраля",
+    "Марта",
+    "Апреля",
+    "Мая",
+    "Июня",
+    "Июля",
+    "Августа",
+    "Сентября",
+    "Октября",
+    "Ноября",
+    "Декабря",
+  ];
+    const [calendars, setCalendar] = useState([])
+
+    useEffect(() => {
+        fetch("http://127.0.0.1:5000/date", {
+            method: "GET"
+        })
+        .then((response) => response.json())
+        .then((result) => setCalendar(result))
+        .catch((error) => console.log(error));
+    }, [])
+
+    console.log(calendars)
   return (
     <div className="header">
       <div className="header-container">
@@ -9,10 +40,10 @@ export default function Header() {
         </p>
         <div className="data-container">
           <p className="date_nubmer" id="date_nubmer">
-            25
+            {calendars.day}
           </p>
           <p className="data_month" id="data_month">
-            Ноябрь
+            {mounth[calendars.mounth]}
           </p>
         </div>
       </div>
