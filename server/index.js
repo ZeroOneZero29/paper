@@ -2,11 +2,17 @@ const express = require("express");
 const puppeter = require("puppeteer");
 const app = express();
 const moment = require("moment");
-const newsDate = require("./public/js/backend/news");
-const newsDateTwo = require("./public/js/backend/news_date");
+const cors = require("cors")
+//const newsDate = require("./public/js/backend/news");
+//const newsDateTwo = require("./public/js/backend/news_date");
 moment.locale("ru");
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
+<<<<<<< HEAD:index.js
+=======
+app.use(cors())
+//newsDateTwo.AxiosDate().then((res) => console.log(res) )
+>>>>>>> 1727ae28ae82d9d5f5a3b0f9ddd40d72696c23f5:server/index.js
 
 app.get("/date", function (req, res) {
   const todayDay = moment().date();
@@ -18,10 +24,17 @@ app.get("/date", function (req, res) {
   res.send(data);
 });
 
-app.get("/news", function (req, res) {
-  const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
+//app.get("/news", function (req, res) {
+//  const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
+//});
+
+<<<<<<< HEAD:index.js
+=======
+app.listen(5000, () => {
+  console.log(5000);
 });
 
+>>>>>>> 1727ae28ae82d9d5f5a3b0f9ddd40d72696c23f5:server/index.js
 app.get("/", function (req, res) {
   res.render("index");
 });
