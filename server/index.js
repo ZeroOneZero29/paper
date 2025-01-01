@@ -3,13 +3,14 @@ const puppeter = require("puppeteer");
 const app = express();
 const moment = require("moment");
 const cors = require("cors")
-//const newsDate = require("./public/js/backend/news");
-//const newsDateTwo = require("./public/js/backend/news_date");
+const newsDate = require("./public/js/backend/news_date");
 moment.locale("ru");
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 
 app.use(cors())
+
+
 
 app.get("/date", function (req, res) {
   const todayDay = moment().date();
@@ -21,9 +22,11 @@ app.get("/date", function (req, res) {
   res.send(data);
 });
 
-//app.get("/news", function (req, res) {
-//  const dateNews = newsDateTwo.AxiosDate().then((result) => res.send(result));
-//});
+app.get("/news", function (req, res) {
+  const dateNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
+  console.log(dateNews)
+  
+});
 
 
 app.listen(5000, () => {
@@ -31,7 +34,7 @@ app.listen(5000, () => {
 });
 
 app.get("/", function (req, res) {
-  res.render("index");
+  res.render("index");``
 });
 
 

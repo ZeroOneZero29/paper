@@ -2,7 +2,7 @@
     padding-top: 35px;
 }
 .news-container {
-    max-width: 1090px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 .news_title {
@@ -10,7 +10,7 @@
     font-weight: bold;
 }
 .news-block {
-    max-width: 1040px;
+    max-width: 1200px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -25,8 +25,10 @@
     font-size: 16px;
     font-weight: bold;
     text-align:justify;
+    width: 180px;
 }
 .item_text {
     font-size: 20px;
     text-align:justify;
+    width: 1200px;
 }
