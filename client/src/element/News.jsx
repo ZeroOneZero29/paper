@@ -95,6 +95,10 @@ import "../css/News.css"
 export default function News() {
 
   const myContainer = useRef(null)
+
+  const myEl = useRef(null)
+
+
   const [news, setNews] = useState([])
   
   useEffect(() => {
@@ -106,22 +110,16 @@ export default function News() {
       .catch((error) => console.log(error));
   }, [])
 
-
-
-
-
-
-
   let newResArr = news.map((obj) => ({...obj, id: Math.random()}))
 
  const newArr = function() {
     let delArr = newResArr
     console.log(delArr)
     for (let i = 0; i <delArr.length; i++){
-      if (delArr[i].title === null){
+      if (delArr[i].title === null || delArr[i].title === "..."){
         delete delArr[i]
       }
-      if (delArr[i].description === null){
+      if (delArr[i].description === null || delArr[i].description === "..."){
         delete delArr[i]
       }
     }
@@ -131,17 +129,18 @@ export default function News() {
   console.log(newArr())
 
 
-    function hiddenElement () {
-    let containerElement = myContainer.current
 
-    const arrElement = containerElement.children
-    console.log(arrElement)
-  } 
+    const containerElement = myContainer.current
+    
+    const node = myEl.current
+    console.log(node)
+   
+    console.log(containerElement)
 
-  console.log(hiddenElement())
+
 
   const listItems = newResArr.map((date) => (
-    <div id="news_item" key={date.id} className="news_item">
+    <div id="news_item" key={date.id} className="news_item" ref={myEl} >
       <p id="item_title" className="item_title">
         {date.title}
       </p>
@@ -150,12 +149,20 @@ export default function News() {
       </p>
     </div>
   ));
+  //function pos(el) {
+  //  const positiont = el.offsetTop
+  //  console.log(positiont)
+  //  return positiont
+  //}
+  //  const position = listItems.forEach((elem) => pos(elem))
+  //  console.log(position)
+
 
   return (
     <div className="news">
-      <div className="news-container" >
+      <div className="news-container" ref={myContainer} >
         <p className="news_title">Новости IT</p>
-        <div id="news-block" className="news-block" ref={myContainer}>
+        <div id="news-block" className="news-block" >
           {listItems}
         </div>
       </div>
