@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState} from "react";
+import {  useEffect, useRef, useState} from "react";
 import "../css/News.css"
+
+
 
 //const resArr = [
 //  {
@@ -93,12 +95,8 @@ import "../css/News.css"
 //]
 
 export default function News() {
-
   const myContainer = useRef(null)
-
   const myEl = useRef(null)
-
-
   const [news, setNews] = useState([])
   
   useEffect(() => {
@@ -111,34 +109,21 @@ export default function News() {
   }, [])
 
   let newResArr = news.map((obj) => ({...obj, id: Math.random()}))
+ 
 
- const newArr = function() {
-    let delArr = newResArr
-    console.log(delArr)
-    for (let i = 0; i <delArr.length; i++){
-      if (delArr[i].title === null || delArr[i].title === "..."){
-        delete delArr[i]
+ function newArr(el, index) {
+    let delArr = el
+      if (delArr[index].title === null || delArr[index].title === "..."){
+        delete delArr[index]
       }
-      if (delArr[i].description === null || delArr[i].description === "..."){
-        delete delArr[i]
+      if (delArr[index].description === null || delArr[index].description === "..."){
+        delete delArr[index]
       }
-    }
-
     return delArr
   }
-  console.log(newArr())
-
-
-
-    const containerElement = myContainer.current
-    
-    const node = myEl.current
-    console.log(node)
-   
-    console.log(containerElement)
-
-
-
+  newResArr = newResArr.forEach((el, index) => newArr(el, index))
+  
+  console.log(newResArr)
   const listItems = newResArr.map((date) => (
     <div id="news_item" key={date.id} className="news_item" ref={myEl} >
       <p id="item_title" className="item_title">
@@ -149,6 +134,9 @@ export default function News() {
       </p>
     </div>
   ));
+
+
+
   //function pos(el) {
   //  const positiont = el.offsetTop
   //  console.log(positiont)
