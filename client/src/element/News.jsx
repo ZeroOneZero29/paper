@@ -106,8 +106,7 @@ const resArr = [
   },
 ]
 
-export default function News() {
-  const myContainer = useRef(null)
+export default function News(props) {
   const myEl = useRef(null)
   //const [news, setNews] = useState([])
   
@@ -177,7 +176,7 @@ console.log(samNewArr);
 
   return (
     <div className="news">
-      <div className="news-container" ref={myContainer} >
+      <div className="news-container" ref={props.ref} >
         <p className="news_title">Новости IT</p>
         <div id="news-block" className="news-block" >
           {listItems}
