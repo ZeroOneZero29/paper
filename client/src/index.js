@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Test from './test';
 import Header from './element/Header.jsx';
 import Quote from './element/Quote.jsx';
 import Weather from './element/Weather.jsx';
 import News from './element/News.jsx';
+import Container from './element/Container.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +15,10 @@ root.render(
     <Header /> 
     <Quote />
     <Weather />
-    <News />
+    <Container>
+      <News />
+    </Container>
+
     </div>
   </React.StrictMode>
 );
