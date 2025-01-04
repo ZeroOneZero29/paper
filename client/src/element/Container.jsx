@@ -15,9 +15,11 @@ export default function Container(){
 
    // Object.values(elem).forEach(val => console.log(val))
 
-    function checkBorder(elem) {
+    console.log(elem);
+    
+     function checkBorder(elem) {
         for (let i = 0; i < elem.length; i ++){
-            if (elem[i].offsetTop + elem[i].offsetHeight >= 1685) {
+             if (elem[i].offsetTop + elem[i].offsetHeight >= 1500) {
                 elem[i].style.display = "none"
             }
             console.log(elem[i].offsetTop);
