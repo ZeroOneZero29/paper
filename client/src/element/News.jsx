@@ -151,8 +151,7 @@ newResArr.map((obj) => chekArr(obj));
 console.log(samNewArr);
 
 
-let info = listItems.curent
-console.log(info)
+
   
   const listItems = samNewArr.map((date) => (
     <div id="news_item" key={date.id} className="news_item" ref={myEl} >
