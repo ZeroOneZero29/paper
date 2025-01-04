@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react": "^7.37.3",
     "web-vitals": "^4.2.4"
   }
 }

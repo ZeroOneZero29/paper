@@ -3,7 +3,7 @@ const axios = require("axios");
 let config = {
   method: "get",
   maxBodyLength: Infinity,
-  //url: "https://newsdata.io/api/1/latest?apikey=pub_605560fbd0bc4869d03f73843c0ed8620b3a9&category=technology&language=ru",
+  //url: "https://newsdata.io/api/1/latest?apikey=pub_641468c33553d5cb7320585d226ee93b9af79&category=technology&language=ru",
   headers: {},
 };
 
