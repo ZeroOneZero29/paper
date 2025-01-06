@@ -108,6 +108,12 @@ import "../css/News.css"
 
 export default function News(props) {
   const myEl = useRef()
+  const newsContainer = useRef()
+  const test = newsContainer.current
+
+  const [elements, setElements] = useState()
+
+  
   const [news, setNews] = useState([])
   
   useEffect(() => {
@@ -122,18 +128,6 @@ export default function News(props) {
   let newResArr = news.map((obj) => ({...obj, id: Math.random()}))
  
 
-// function newArr(el, index) {
-//  console.log(el.description)
-//      //if (el.title === null || el.title === "..."){
-//      //  console.log('Пусто')
-//      //}
-//      //if (el.description === null || el.description === "..."){
-//      //  console.log('Пусто')
-//      //}
-
-//  }
-//  const newAAA = newResArr.map((el, index) => newArr(el, index))
-
 function chekArr(el) {
   if (el.title !== "..." 
     && el.description !== "..." 
@@ -147,11 +141,7 @@ function chekArr(el) {
 
 let samNewArr = []
 newResArr.map((obj) => chekArr(obj));
-console.log(samNewArr);
 
-
-
-  
   const listItems = samNewArr.map((date) => (
     <div id="news_item" key={date.id} className="news_item" ref={myEl} >
       <p id="item_title" className="item_title">
@@ -164,19 +154,29 @@ console.log(samNewArr);
   ));
 
 
+useEffect(() => {
+  setElements(test)
+  if (elements !== undefined){
+    CheckEl(elements.children[1].children)
+  }
 
-  //function pos(el) {
-  //  const positiont = el.offsetTop
-  //  console.log(positiont)
-  //  return positiont
-  //}
-  //  const position = listItems.forEach((elem) => pos(elem))
-  //  console.log(position)
+})
+
+
+function CheckEl(e) {
+  console.log(e)
+  for (let i = 0; i < e.length; i ++){
+    if (e[i].offsetTop + e[i].offsetHeight >= 1500) {
+       e[i].style.display = "none"
+   }
+   console.log(e[i].offsetTop);
+}
+}
 
 
   return (
     <div className="news">
-      <div className="news-container" ref={props.ref} >
+      <div className="news-container" ref={newsContainer} >
         <p className="news_title">Новости IT</p>
         <div id="news-block" className="news-block" >
           {listItems}

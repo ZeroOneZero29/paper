@@ -15,9 +15,7 @@ root.render(
     <Header /> 
     <Quote />
     <Weather />
-    <Container>
-      <News />
-    </Container>
+    <News />
 
     </div>
   </React.StrictMode>
