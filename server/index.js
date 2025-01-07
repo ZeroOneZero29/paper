@@ -3,6 +3,7 @@ const puppeter = require("puppeteer");
 const app = express();
 const moment = require("moment");
 const cors = require("cors")
+const print = require("pdf-to-printer")
 const newsDate = require("./public/js/backend/news_date");
 moment.locale("ru");
 app.set("view engine", "ejs");
@@ -10,6 +11,8 @@ app.use("/public", express.static("public"));
 
 app.use(cors())
 
+
+print.getPrinters().then((date) => console.log(date))
 
 
 app.get("/date", function (req, res) {
@@ -47,12 +50,22 @@ async function pdf() {
   await page.emulateMediaType("screen");
 
   const pdf = await page.pdf({
-    path: "result.pdf",
+    path: "./public/pdf/result.pdf",
     margin: { top: "0px", right: "0px", left: "0px", bottom: "0px" },
     format: "A4",
   });
   await browser.close();
 }
+
+
+const options = {
+  printer: "HP91AE40 (HP Smart Tank 580-590 series)",
+  scale: "noscale"
+}
+//print.print("./public/pdf/result.pdf", options).then((res) => console.log(res)).catch((er) => console.log(er))
+
+
+
 
 //const getData = async() => {
 //try{

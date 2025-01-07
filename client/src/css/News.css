@@ -1,12 +1,13 @@
 .news {
     padding-top: 35px;
+    margin-right: 50px;
 }
 .hiden {
     background-color: black;
     display: none;
 }
 .news-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 .news_title {
@@ -14,7 +15,7 @@
     font-weight: bold;
 }
 .news-block {
-    max-width: 1200px;
+    max-width: 1100px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
