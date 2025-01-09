@@ -4,15 +4,26 @@ const app = express();
 const moment = require("moment");
 const cors = require("cors")
 const print = require("pdf-to-printer")
-const newsDate = require("./public/js/backend/news_date");
+const {spawn} = require("child_process");
+
 moment.locale("ru");
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
-
 app.use(cors())
 
+//const newsDate = require("./public/js/backend/news_date");
+const newsQuote = require("./public/js/backend/quoteNew")
 
-print.getPrinters().then((date) => console.log(date))
+//console.log(newsQuote.getDate());
+
+const test = newsQuote.getDate
+console.log(test);
+
+app.get("/quote", function(req, res) {
+  const quoteData = newsQuote.getDate.then(result => res.send(result))
+
+})
+//print.getPrinters().then((date) => console.log(date))
 
 
 app.get("/date", function (req, res) {
@@ -25,11 +36,11 @@ app.get("/date", function (req, res) {
   res.send(data);
 });
 
-app.get("/news", function (req, res) {
-  const dateNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
-  console.log(dateNews)
+//app.get("/news", function (req, res) {
+//  const dateNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
+//  console.log(dateNews)
   
-});
+//});
 
 
 app.listen(5000, () => {
@@ -37,7 +48,7 @@ app.listen(5000, () => {
 });
 
 app.get("/", function (req, res) {
-  res.render("index");``
+  res.render("index");
 });
 
 

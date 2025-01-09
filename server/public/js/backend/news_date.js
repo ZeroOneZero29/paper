@@ -4,7 +4,7 @@ let config = {
   method: "get",
   maxBodyLength: Infinity,
 
-  url: "https://newsdata.io/api/1/latest?apikey=pub_6457648ac306c39e1085e4bb853f85fdb2718&category=technology&language=ru",
+  //url: "https://newsdata.io/api/1/latest?apikey=pub_6457648ac306c39e1085e4bb853f85fdb2718&category=technology&language=ru",
   
   
   
@@ -19,7 +19,7 @@ let config = {
 
 async function AxiosDate() {
   const response = await axios.request(config);
-  return parseNews(response.data);
+  return parseNews(response.data);  
 }
 
 function parseNews(data) {

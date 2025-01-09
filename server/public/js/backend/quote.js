@@ -10,7 +10,7 @@ const { data } = axios.get(URL).then((response) => {
   const $p = $("p");
   //console.log($p[48].children[0].next.children)
   for (let test of $p) {
-    if (test.children[0] && test.children[0].data !== undefined){
+    if (test.children[0] !== undefined && test.children[0].data !== undefined){
       //quote.push(returnString(test.children[0]));
       console.log(test.children[0].next.children[0])
       if (!test.children[0]) {
