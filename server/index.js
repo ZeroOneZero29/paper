@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 app.use(cors())
 
-//const newsDate = require("./public/js/backend/news_date");
+const newsDate = require("./public/js/backend/news_date");
 const newsQuote = require("./public/js/backend/quoteNew")
 const weather = require("./public/js/backend/weather")
 
@@ -43,11 +43,11 @@ app.get("/weather", function(req, res) {
   
 })
 
-//app.get("/news", function (req, res) {
-//  const dataNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
-//  console.log(dataNews)
+app.get("/news", function (req, res) {
+  const dataNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
+  console.log(dataNews)
   
-//});
+});
 
 
 app.listen(5000, () => {
