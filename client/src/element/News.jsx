@@ -1,7 +1,5 @@
-import {   useEffect, useRef, useState} from "react";
-import "../css/News.css"
-
-
+import { useEffect, useRef, useState } from "react";
+import "../css/News.css";
 
 //const resArr = [
 //  {
@@ -92,58 +90,47 @@ import "../css/News.css"
 //    description:
 //      "Умные ультракороткофокусные проекторы – пожалуй, единственная возможность создать настоящий кинотеатр дома без необходимости перестраивать комнату, прокладывать лишние провода и устанавливать проектор в неудобном месте. Компания Hisense продолжает развивать данный сегмент и улучшает потребительские характеристики подобных устройств. Наглядный тому пример – новый Laser Cinema PL2SE",
 //  },
-//  {
-//    title:
-//      "Новая статья: Обзор лазерного 4К-проектора Hisense Laser Cinema PL2SE: для поклонников жанра!",
-//    description:
-//      "Умные ультракороткофокусные проекторы – пожалуй, единственная возможность создать настоящий кинотеатр дома без необходимости перестраивать комнату, прокладывать лишние провода и устанавливать проектор в неудобном месте. Компания Hisense продолжает развивать данный сегмент и улучшает потребительские характеристики подобных устройств. Наглядный тому пример – новый Laser Cinema PL2SE",
-//  },
-//  {
-//    title:
-//      "Новая статья: Обзор лазерного 4К-проектора Hisense Laser Cinema PL2SE: для поклонников жанра!",
-//    description:
-//      "Умные ультракороткофокусные проекторы – пожалуй, единственная возможность создать настоящий кинотеатр дома без необходимости перестраивать комнату, прокладывать лишние провода и устанавливать проектор в неудобном месте. Компания Hisense продолжает развивать данный сегмент и улучшает потребительские характеристики подобных устройств. Наглядный тому пример – новый Laser Cinema PL2SE",
-//  },
 //]
 
 export default function News(props) {
-  const myEl = useRef()
-  const newsContainer = useRef()
-  const test = newsContainer.current
+  const myEl = useRef();
+  const newsContainer = useRef();
+  const test = newsContainer.current;
 
-  const [elements, setElements] = useState()
+  const [elements, setElements] = useState();
 
-  
-  const [news, setNews] = useState([])
-  
+  const [news, setNews] = useState([]);
+
   useEffect(() => {
-      fetch("http://127.0.0.1:5000/news", {
-          method: "GET"
-      })
+    fetch("http://127.0.0.1:5000/news", {
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((result) => setNews(result))
       .catch((error) => console.log(error));
-  }, [])
+  }, []);
 
-  let newResArr = news.map((obj) => ({...obj, id: Math.random()}))
- 
+  let newResArr = news.map((obj, index) => ({ ...obj, id: index }));
 
-function chekArr(el) {
-  if (el.title !== "..." 
-    && el.description !== "..." 
-    && el.title !== null 
-    && el.description !== null 
-    && el.title !== "" 
-    && el.description !== ""){
-    samNewArr.push(el)
-}
-}
+  function chekArr(el) {
+    if (
+      el.title !== "..." &&
+      el.description !== "..." &&
+      el.title !== null &&
+      el.description !== null &&
+      el.title !== "" &&
+      el.description !== ""
+    ) {
+      samNewArr.push(el);
+    }
+  }
 
-let samNewArr = []
-newResArr.map((obj) => chekArr(obj));
+  let samNewArr = [];
+  newResArr.map((obj) => chekArr(obj));
+console.log(samNewArr);
 
   const listItems = samNewArr.map((date) => (
-    <div id="news_item" key={date.id} className="news_item" ref={myEl} >
+    <div id="news_item" key={date.id} className="news_item" ref={myEl}>
       <p id="item_title" className="item_title">
         {date.title}
       </p>
@@ -153,32 +140,35 @@ newResArr.map((obj) => chekArr(obj));
     </div>
   ));
 
+  console.log(typeof(listItems));
+  
+  useEffect(() => {
+    setElements(test);
+    if (elements !== undefined) {
+      CheckEl(elements.children[1].children);
+    }
+  });
 
-useEffect(() => {
-  setElements(test)
-  if (elements !== undefined){
-    CheckEl(elements.children[1].children)
+  function CheckEl(e) {
+    console.log(e);
+    const cyrillicPattern = /[а-яА-ЯЁё]/;
+    for (let i = 0; i < e.length; i++) {
+      if (e[i].offsetTop + e[i].offsetHeight >= 1700) {
+        e[i].style.display = "none";
+      }
+      if (!cyrillicPattern.test(e[i].innerText)) {
+        e[i].style.display = "none";
+      }
+      console.log(cyrillicPattern.test(e[i].innerText));
+      console.log(e[i].innerText);
+    }
   }
-
-})
-
-
-function CheckEl(e) {
-  console.log(e)
-  for (let i = 0; i < e.length; i ++){
-    if (e[i].offsetTop + e[i].offsetHeight >= 1500) {
-       e[i].style.display = "none"
-   }
-   console.log(e[i].offsetTop);
-}
-}
-
 
   return (
     <div className="news">
-      <div className="news-container" ref={newsContainer} >
+      <div className="news-container" ref={newsContainer}>
         <p className="news_title">Новости IT</p>
-        <div id="news-block" className="news-block" >
+        <div id="news-block" className="news-block">
           {listItems}
         </div>
       </div>

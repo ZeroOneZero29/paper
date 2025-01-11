@@ -1,16 +1,51 @@
+import { useEffect, useState } from 'react';
 import '../css/Quote.css';
 
 
+
+
 export default function Quote() {
+
+  const [quote, setQuote] = useState([])
+  const [ready, isReady] = useState()
+  const [len, setLen] = useState()
+  
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/quote', {
+      method: "GET"
+    })
+    .then(response => response.json())
+    .then(result => getDate(result))
+    .catch(error => console.log(error))
+    
+
+  }, [])
+
+  function getDate(res) {
+    setQuote(res)
+    setLen(res.length)
+    isReady(true)
+  }
+
+function numIndex (len){
+  const min = 0
+  const indexArr = Math.floor(Math.random() * (len - min + 1)) + min
+  console.log(indexArr);
+  return indexArr
+}
+
+let arrIndex = numIndex(len)
+
+if (ready){
   return(
     <div className="quote">
     <div className="quote-container">
       <p className="quote_text">
-        Счастье — это не нечто готовое. Счастье зависит только от ваших
-        действий.
+      «{quote[arrIndex].text}»
       </p>
-      <p className="quote_autor">Далай Лама</p>
+      <p className="quote_autor">{quote[arrIndex].autor}</p>
     </div>
   </div>
   )
+}
 }

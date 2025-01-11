@@ -8,14 +8,30 @@ let quote = [];
 const { data } = axios.get(URL).then((response) => {
   const $ = cheerio.load(response.data);
   const $p = $("p");
-  console.log($p.children[50]);
-  for (let obj of $p) {
-    if (obj.children[0].next && obj.children[0].next.children) {
-      try {
-        quote.push(returnString(obj.children[0]));
-      } catch (e) {}
+  //console.log($p[48].children[0].next.children)
+  for (let test of $p) {
+    if (test.children[0] !== undefined && test.children[0].data !== undefined){
+      //quote.push(returnString(test.children[0]));
+      console.log(test.children[0].next.children[0])
+      if (!test.children[0]) {
+        break
+      }
     }
   }
+  //for (let obj of $p) {
+  //  if (obj.children[0].next && obj.children[0].next.children & test.children[0].data !== undefined) {
+  //    if (!test.children[0]) {
+  //      try {
+  //        quote.push(returnString(obj.children[0]));
+  //      } catch{
+
+
+  //      }
+  //      break
+  //    }
+
+  //  }
+  //}
   console.log(quote.length);
 });
 
