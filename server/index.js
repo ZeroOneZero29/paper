@@ -13,11 +13,12 @@ app.use(cors())
 
 //const newsDate = require("./public/js/backend/news_date");
 const newsQuote = require("./public/js/backend/quoteNew")
+const weather = require("./public/js/backend/weather")
 
-//console.log(newsQuote.getDate());
+//console.log(weather.WeatherDate().then(res => console.log(res)))
 
-const test = newsQuote.getDate
-console.log(test);
+
+
 
 app.get("/quote", function(req, res) {
   const quoteData = newsQuote.getDate.then(result => res.send(result))
@@ -36,9 +37,15 @@ app.get("/date", function (req, res) {
   res.send(data);
 });
 
+app.get("/weather", function(req, res) {
+  const dataWeather = weather.WeatherDate.then(result => res.send(result))
+  console.log(dataWeather);
+  
+})
+
 //app.get("/news", function (req, res) {
-//  const dateNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
-//  console.log(dateNews)
+//  const dataNews = newsDate.AxiosDate().then((result) => result).then(ress => res.send(ress));
+//  console.log(dataNews)
   
 //});
 

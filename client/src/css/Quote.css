@@ -12,6 +12,7 @@
     max-width: 800px;
 }
 .quote_autor {
+    max-width: 330px;
     position: relative;
     top: 10px;
     left: 800px;

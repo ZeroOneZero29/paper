@@ -140,6 +140,8 @@ console.log(samNewArr);
     </div>
   ));
 
+  console.log(typeof(listItems));
+  
   useEffect(() => {
     setElements(test);
     if (elements !== undefined) {

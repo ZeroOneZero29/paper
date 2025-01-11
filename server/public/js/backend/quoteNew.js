@@ -39,9 +39,10 @@ async function getDate() {
       //  text: $(el).text(),
       //  autor: $(el).children().text()
       //}  
-      const textSlice = $(el).text().slice(1, $(el).text().indexOf(`”`))
+      const textSlice = $(el).text().slice($(el).text().indexOf(`“`)+1, $(el).text().indexOf(`”`)-1)
       const autor = $(el).children().text()
       //let textSlice = quoteObj.text.slice(0, quoteObj.text.indexOf(``))
+
       
       let newQuoteObj = {
         index: index,
@@ -54,6 +55,10 @@ async function getDate() {
       }
 
     })
+    quote.splice(0,2)
+    quote.splice(143,5)
+    quote.splice(43,1)
+    quote.splice(87,1)
     return quote
     //console.log(test.children().children().children().children().text());
     
