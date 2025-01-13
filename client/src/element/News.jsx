@@ -98,26 +98,6 @@ export default function News() {
       .catch((error) => console.log(error));
   }, []);
 
-  //useEffect(() => {
-
-  //  const body = {
-  //    testtt: "test"
-  //  }
-  //  const option = {
-  //    method: "POST",
-  //    mode: "cors",
-  //    cache: "no-cache",
-  //    credentials: "same-origin",
-  //    headers: { "Content-Type": "application/json" },
-  //    body: JSON.stringify(body)
-  //  }
-
-  
-  //  fetch('http://127.0.0.1:5000/print', option)
-  //  .then((response) => response.text())
-  //  .then(result => console.log(result))
-  //  .catch((error) => console.log(error))
-  //}, [])
 
 
 

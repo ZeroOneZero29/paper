@@ -4,8 +4,8 @@ const app = express();
 const moment = require("moment");
 const cors = require("cors")
 const print = require("pdf-to-printer")
-const {spawn} = require("child_process");
 const bodyParser = require('body-parser');
+const cron = require('node-cron')
 
 moment.locale("ru");
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ const weather = require("./public/js/backend/weather")
 //console.log(weather.WeatherDate().then(res => console.log(res)))
 
 const time =  new Date().toJSON().replace(new RegExp(':', 'g'),'.');
-let timestamp = time.slice(0,19).toString()
+let timestamp = time.slice(0,10).toString()
 console.log(timestamp); 
 
 
@@ -64,15 +64,17 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-app.post("/print", function(req, res) {
-  //console.log(req.body);
-  //console.log('Отправка запроса на печать');
-  console.log(`${JSON.stringify(req.body)}`)
-  res.sendStatus(200);
+//app.post("/print", function(req, res) {
+//  //console.log(req.body);
+//  //console.log('Отправка запроса на печать');
+//  console.log(`${JSON.stringify(req.body)}`)
+//  res.sendStatus(200);
 
- })
+// })
 
-async function pdf() {
+
+
+async function pdf(time) {
   const browser = await puppeter.launch();
   const page = await browser.newPage();
 
@@ -81,7 +83,7 @@ async function pdf() {
   await page.emulateMediaType("screen");
 
   const pdf = await page.pdf({
-    path: "./public/pdf/teeeesedadasdasdee.pdf",
+    path: `./public/pdf/${time}.pdf`,
     margin: { top: "0px", right: "0px", left: "0px", bottom: "0px" },
     format: "A4",
   });
@@ -103,10 +105,17 @@ const options = {
 //}, 10000);
 //print.print(`./public/pdf/${timestamp}.pdf`, options).then((res) => console.log(res)).catch((er) => console.log(er))
 
-const process = require('process'); 
-  
-// Printing process.pid property value 
-console.log("process id is " + process.pid);
+cron.schedule('00 23 * * *', () => {
+  console.log('crone');
+  pdf(timestamp)
+  setTimeout(() => {
+    console.log('ten ten ten');
+    print.print(`./public/pdf/${timestamp}.pdf`, options).then((res) => console.log(res)).catch((er) => console.log(er))
+  }, 30000);
+})
+
+
+
 
 
 //const getData = async() => {

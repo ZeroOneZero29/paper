@@ -23,29 +23,29 @@ export default function App() {
     // window.location.reload();
   }
 
-  console.log(__dirname);
-  
-  useEffect(() => {
-    const job = new CronJob(
-      "* * * * *", // cronTime
-      function () {
-        console.log("TEST CRONE");
-        toPDF();
-      }
-    );
-    const jobTwo = new CronJob(
-      "20 * * * * *", // cronTime
-      function () {
-        console.log("da");
-        window.location.reload()
-      } // onTick
-    );
 
-      //job.start()
-      //jobTwo.start()
-  
 
-  }, []);
+  //useEffect(() => {
+  //  //const job = new CronJob(
+  //  //  "* * * * *", // cronTime
+  //  //  function () {
+  //  //    console.log("TEST CRONE");
+  //  //    //toPDF();
+  //  //  }
+  //  //);
+  //  //const jobTwo = new CronJob(
+  //  //  "/20 * * * * *", // cronTime
+  //  //  function () {
+  //  //    console.log("da");
+  //  //    window.location.reload()
+  //  //  } // onTick
+  //  //);
+
+  //   // job.start()
+  //   // jobTwo.start()
+
+
+  //}, []);
 
   return (
     <div ref={targetRef}>
