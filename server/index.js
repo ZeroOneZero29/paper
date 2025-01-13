@@ -5,8 +5,10 @@ const moment = require("moment");
 const cors = require("cors")
 const print = require("pdf-to-printer")
 const {spawn} = require("child_process");
+const bodyParser = require('body-parser');
 
 moment.locale("ru");
+app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 app.use(cors())
@@ -17,13 +19,17 @@ const weather = require("./public/js/backend/weather")
 
 //console.log(weather.WeatherDate().then(res => console.log(res)))
 
-
+const time =  new Date().toJSON().replace(new RegExp(':', 'g'),'.');
+let timestamp = time.slice(0,19).toString()
+console.log(timestamp); 
 
 
 app.get("/quote", function(req, res) {
   const quoteData = newsQuote.getDate.then(result => res.send(result))
 
 })
+
+
 //print.getPrinters().then((date) => console.log(date))
 
 
@@ -58,6 +64,13 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
+app.post("/print", function(req, res) {
+  //console.log(req.body);
+  //console.log('Отправка запроса на печать');
+  console.log(`${JSON.stringify(req.body)}`)
+  res.sendStatus(200);
+
+ })
 
 async function pdf() {
   const browser = await puppeter.launch();
@@ -68,7 +81,7 @@ async function pdf() {
   await page.emulateMediaType("screen");
 
   const pdf = await page.pdf({
-    path: "./public/pdf/result.pdf",
+    path: "./public/pdf/teeeesedadasdasdee.pdf",
     margin: { top: "0px", right: "0px", left: "0px", bottom: "0px" },
     format: "A4",
   });
@@ -76,13 +89,24 @@ async function pdf() {
 }
 
 
+
+//function postFunc(time) {
+
+//  console.log('EBAT TVOI ROT' + time);
+//}
 const options = {
   printer: "HP91AE40 (HP Smart Tank 580-590 series)",
   scale: "noscale"
 }
-//print.print("./public/pdf/result.pdf", options).then((res) => console.log(res)).catch((er) => console.log(er))
+//setTimeout(() => {
+//  print.print(`./public/pdf/${timestamp}.pdf`, options).then((res) => console.log(res)).catch((er) => console.log(er))
+//}, 10000);
+//print.print(`./public/pdf/${timestamp}.pdf`, options).then((res) => console.log(res)).catch((er) => console.log(er))
 
-
+const process = require('process'); 
+  
+// Printing process.pid property value 
+console.log("process id is " + process.pid);
 
 
 //const getData = async() => {

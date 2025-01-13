@@ -62,6 +62,7 @@ export default function Weather() {
     }
   }
 
+  
   if (ready) {
     return (
       <div className="weather">
