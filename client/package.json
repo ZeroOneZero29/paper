@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "child_process": "^1.0.2",
     "cra-template": "1.2.0",
+    "file-saver": "^2.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-js-cron": "^5.0.1",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -33,7 +36,10 @@
     ]
   },
   "devDependencies": {
+    "cron": "^3.5.0",
     "eslint-plugin-react": "^7.37.3",
+    "react-to-pdf": "^1.0.1",
     "web-vitals": "^4.2.4"
   }
+
 }
