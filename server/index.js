@@ -36,9 +36,13 @@ app.get("/quote", function(req, res) {
 app.get("/date", function (req, res) {
   const todayDay = moment().date();
   const todayMonth = moment().month();
+  const todayDayName = moment().day()
+  const todayYear = moment().year()
   const data = {
     day: todayDay,
     mounth: todayMonth,
+    day_name: todayDayName,
+    year: todayYear
   };
   res.send(data);
 });
@@ -92,10 +96,7 @@ async function pdf(time) {
 
 
 
-//function postFunc(time) {
 
-//  console.log('EBAT TVOI ROT' + time);
-//}
 const options = {
   printer: "HP91AE40 (HP Smart Tank 580-590 series)",
   scale: "noscale"
@@ -105,7 +106,7 @@ const options = {
 //}, 10000);
 //print.print(`./public/pdf/${timestamp}.pdf`, options).then((res) => console.log(res)).catch((er) => console.log(er))
 
-cron.schedule('00 23 * * *', () => {
+cron.schedule('54 0 * * *', () => {
   console.log('crone');
   pdf(timestamp)
   setTimeout(() => {

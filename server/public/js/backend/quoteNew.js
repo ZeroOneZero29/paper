@@ -56,9 +56,11 @@ async function getDate() {
 
     })
     quote.splice(0,2)
+    quote.splice(0,1)
     quote.splice(143,5)
     quote.splice(43,1)
     quote.splice(87,1)
+    quote.splice(141,1)
     return quote
     //console.log(test.children().children().children().children().text());
     

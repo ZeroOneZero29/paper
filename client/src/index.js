@@ -8,6 +8,7 @@ import Weather from './element/Weather.jsx';
 import News from './element/News.jsx';
 import Container from './element/Container.jsx';
 import App from './element/App.jsx';
+import './fonts/fontslink.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

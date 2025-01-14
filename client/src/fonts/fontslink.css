@@ -1,0 +1,18 @@
+/*Новелист разработан Аленой Крачковской в Школе дизайна НИУ ВШЭ */
+
+@font-face {
+	font-family: 'BrokgauzEfron';
+	src: url('../fonts/brokgauzefron.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/brokgauzefron.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/brokgauzefron.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/brokgauzefron.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/brokgauzefron.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/brokgauzefron.svg#brokgauzefron') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+
+@font-face {
+    font-family: "Forum";
+    src: local("Forum-Regular"),
+    url("./Forum-Regular.ttf") format('ttf');
+}
