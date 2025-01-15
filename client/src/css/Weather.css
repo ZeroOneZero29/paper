@@ -1,7 +1,8 @@
 .weather {
-    padding-top: 26px;
-    border-bottom: 4px solid black;
-    padding-bottom: 2.4em;
+  padding-top: 26px;
+  border-bottom: 4px solid black;
+  padding-bottom: 2.4em;
+  font-family: "Forum";
 }
 .weather-container {
   max-width: 1090px;
@@ -11,24 +12,24 @@
   font-size: 40px;
   font-weight: bold;
 }
-.weater_card-container{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
+.weater_card-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 .weater_card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
 }
 .time-of-day {
-    font-size: 30px;
+  font-size: 30px;
 }
 .status-weather {
-    font-size: 26px;
+  font-size: 26px;
 }
 .status-degrees {
-    font-size: 26px;
+  font-size: 26px;
 }

@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react"
-import '../css/Header.css';
-
-
+import { useEffect, useState } from "react";
+import "../css/Header.css";
 
 export default function Header() {
-
-
   let mounth = [
-    "Января",
+    "Январь",
     "Февраля",
     "Марта",
     "Апреля",
@@ -20,32 +16,49 @@ export default function Header() {
     "Ноября",
     "Декабря",
   ];
-    const [calendars, setCalendar] = useState([])
 
-    useEffect(() => {
-        fetch("http://127.0.0.1:5000/date", {
-            method: "GET"
-        })
-        .then((response) => response.json())
-        .then((result) => setCalendar(result))
-        .catch((error) => console.log(error));
-    }, [])
+  let dayName = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+  ];
+  const [calendars, setCalendar] = useState([]);
 
-    console.log(calendars)
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/date", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => setCalendar(result))
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log(calendars);
   return (
     <div className="header">
       <div className="header-container">
         <p className="header_title" id="header_title">
-          Morning News
+          THE MORNING NEWS
         </p>
-        <div className="data-container">
-          <p className="date_nubmer" id="date_nubmer">
-            {calendars.day}
-          </p>
-          <p className="data_month" id="data_month">
-            {mounth[calendars.mounth]}
-          </p>
-        </div>
+      </div>
+      <hr className="line" />
+      <div className="data-container">
+        <p className="day_name" id="day_name">
+          {dayName[calendars.day_name]},
+        </p>
+        <p className="data_month" id="data_month">
+          {mounth[calendars.mounth]}
+        </p>
+        <p className="date_nubmer" id="date_nubmer">
+          {calendars.day},
+        </p>
+        <p className="year" id="year">
+          {calendars.year}
+        </p>
       </div>
     </div>
   );

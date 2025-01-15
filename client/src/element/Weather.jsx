@@ -32,6 +32,9 @@ export default function Weather() {
 
   function returnIconWeather(status_code) {
     switch (status_code) {
+      case 0:
+        return <img src="../icon/01.png" alt="" />;
+        break;
       case 1:
         return <img src="../icon/01.png" alt="" />;
         break;
@@ -62,7 +65,6 @@ export default function Weather() {
     }
   }
 
-  
   if (ready) {
     return (
       <div className="weather">
