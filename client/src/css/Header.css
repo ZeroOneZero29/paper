@@ -1,51 +1,50 @@
 .container {
-    max-width: 1240px;
-    max-height: 1754px;
-    width: 1240px;
-    height: 1680px;
-    border: 1px solid black;
-    font-family: 'BrokgauzEfron';
+  max-width: 1240px;
+  max-height: 1754px;
+  width: 1240px;
+  height: 1680px;
+  border: 1px solid black;
+  font-family: "BrokgauzEfron";
 }
 .header {
-    padding-top: 5px;
-    border-bottom: 4px solid black;
-    padding-bottom: 2px;
+  padding-top: 5px;
+  border-bottom: 4px solid black;
+  padding-bottom: 2px;
 }
 .header-container {
-    padding: 5px;
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-around;
+  padding: 5px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-around;
 }
 .header_title {
-    font-size: 70px;
-
+  font-size: 70px;
 }
 .data-container {
-    padding: 5px;
-    gap: 20px;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
+  padding: 5px;
+  gap: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
 }
 .date_nubmer {
-    font-size: 25px;
+  font-size: 25px;
 }
 .data_month {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .line {
-    margin-bottom: -1px;
-    size: 2px;
+  margin-bottom: -1px;
+  size: 2px;
 }
 
 .day_name {
-    font-size: 25px;
-    font-weight: bold;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .year {
-    font-size: 25px;
+  font-size: 25px;
 }

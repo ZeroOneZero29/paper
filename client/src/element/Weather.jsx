@@ -30,8 +30,6 @@ export default function Weather() {
     }
   }, [ready]);
 
-  console.log(weather);
-  
   function returnIconWeather(status_code) {
     switch (status_code) {
       case 0:
@@ -67,7 +65,6 @@ export default function Weather() {
     }
   }
 
-  
   if (ready) {
     return (
       <div className="weather">

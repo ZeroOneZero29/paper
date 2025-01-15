@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react"
-import '../css/Header.css';
-
+import { useEffect, useState } from "react";
+import "../css/Header.css";
 
 export default function Header() {
-
-
   let mounth = [
     "Январь",
     "Февраля",
@@ -27,20 +24,20 @@ export default function Header() {
     "Четверг",
     "Пятница",
     "Суббота",
-    "Воскресенье"
-  ]
-    const [calendars, setCalendar] = useState([])
+    "Воскресенье",
+  ];
+  const [calendars, setCalendar] = useState([]);
 
-    useEffect(() => {
-        fetch("http://127.0.0.1:5000/date", {
-            method: "GET"
-        })
-        .then((response) => response.json())
-        .then((result) => setCalendar(result))
-        .catch((error) => console.log(error));
-    }, [])
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/date", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((result) => setCalendar(result))
+      .catch((error) => console.log(error));
+  }, []);
 
-    console.log(calendars)
+  console.log(calendars);
   return (
     <div className="header">
       <div className="header-container">
@@ -50,19 +47,19 @@ export default function Header() {
       </div>
       <hr className="line" />
       <div className="data-container">
-      <p className="day_name" id="day_name">
-            {dayName[calendars.day_name]},
-          </p>
-          <p className="data_month" id="data_month">
-            {mounth[calendars.mounth]}
-          </p>
-          <p className="date_nubmer" id="date_nubmer">
-            {calendars.day},
-          </p>
-          <p className="year" id="year">
-            {calendars.year}
-          </p>
-        </div>
+        <p className="day_name" id="day_name">
+          {dayName[calendars.day_name]},
+        </p>
+        <p className="data_month" id="data_month">
+          {mounth[calendars.mounth]}
+        </p>
+        <p className="date_nubmer" id="date_nubmer">
+          {calendars.day},
+        </p>
+        <p className="year" id="year">
+          {calendars.year}
+        </p>
+      </div>
     </div>
   );
 }
