@@ -106,7 +106,7 @@ const options = {
 //}, 10000);
 //print.print(`./public/pdf/${timestamp}.pdf`, options).then((res) => console.log(res)).catch((er) => console.log(er))
 
-cron.schedule('54 0 * * *', () => {
+cron.schedule('13 20 * * *', () => {
   console.log('crone');
   pdf(timestamp)
   setTimeout(() => {
