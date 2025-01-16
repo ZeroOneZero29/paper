@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import News from "./News";
+import NewsTech from "./NewsTech";
 import Quote from "./Quote";
 import Weather from "./Weather";
+import NewsBusiness from "./NewsBusiness";
 
 export default function App() {
   return (
@@ -10,7 +11,8 @@ export default function App() {
         <Header />
         <Quote />
         <Weather />
-        <News />
+        <NewsTech />
+        <NewsBusiness />
       </React.StrictMode>
   );
 }

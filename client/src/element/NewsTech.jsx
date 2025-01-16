@@ -83,7 +83,7 @@ export default function News() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/news", {
+    fetch("http://127.0.0.1:5000/news/technology", {
       method: "GET",
     })
       .then((response) => response.json())
@@ -93,7 +93,7 @@ export default function News() {
 
   useEffect(() => {
     setElements(newsContainerCurent);
-    console.log(elements);
+    //console.log(elements);
 
     if (elements !== undefined) {
       CheckEl(elements.children[1].children);
@@ -134,14 +134,14 @@ export default function News() {
     console.log(e);
     const cyrillicPattern = /[а-яА-ЯЁё]/;
     for (let i = 0; i < e.length; i++) {
-      if (e[i].offsetTop + e[i].offsetHeight >= 1650) {
+      if (e[i].offsetTop + e[i].offsetHeight > 1100) {
         e[i].style.display = "none";
       }
       if (!cyrillicPattern.test(e[i].innerText)) {
         e[i].style.display = "none";
       }
-      console.log(cyrillicPattern.test(e[i].innerText));
-      console.log(e[i].innerText);
+      //console.log(cyrillicPattern.test(e[i].innerText));
+      //console.log(e[i].innerText);
     }
   }
 

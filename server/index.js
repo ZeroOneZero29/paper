@@ -49,9 +49,16 @@ app.get("/weather", function (req, res) {
   console.log(dataWeather);
 });
 
-app.get("/news", function (req, res) {
+app.get("/news/technology", function (req, res) {
   const dataNews = newsDate
     .AxiosDate()
+    .then((result) => result)
+    .then((ress) => res.send(ress));
+  console.log(dataNews);
+});
+
+app.get("/news/business", function (req, res) {
+  const dataNews = newsDate.getBusinessNews()
     .then((result) => result)
     .then((ress) => res.send(ress));
   console.log(dataNews);
