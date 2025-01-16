@@ -39,3 +39,13 @@
   text-align: justify;
   width: 1200px;
 }
+
+
+.prod_by {
+  font-family: "Forum";
+  position: absolute;
+  font-size: 20px;
+  top: 1640px;
+  left: 1000px;
+  max-width: 200px;
+}

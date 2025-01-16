@@ -156,6 +156,7 @@ export default function News() {
           {listItems}
         </div>
       </div>
+      <p className="prod_by">prod. by Zhigadlov</p>
     </div>
   );
 }

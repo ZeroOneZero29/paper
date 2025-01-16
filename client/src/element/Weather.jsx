@@ -76,7 +76,7 @@ export default function Weather() {
                 Утро
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[morning]}℃
+                {weather.hourly.temperature_2m[morning]}°С
               </p>
               <div id="status-weather" className="status-weather">
                 {returnIconWeather(weather.hourly.weather_code[morning])}
@@ -87,7 +87,7 @@ export default function Weather() {
                 День
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[day]}℃
+                {weather.hourly.temperature_2m[day]}°С
               </p>
               <p id="status-weather" className="status-weather">
                 {returnIconWeather(weather.hourly.weather_code[day])}
@@ -98,7 +98,7 @@ export default function Weather() {
                 Вечер
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[evening]}℃
+                {weather.hourly.temperature_2m[evening]}°С
               </p>
               <p id="status-weather" className="status-weather">
                 {returnIconWeather(weather.hourly.weather_code[evening])}
@@ -109,7 +109,7 @@ export default function Weather() {
                 Ночь
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[night]}℃
+                {weather.hourly.temperature_2m[night]}°С
               </p>
               <p id="status-weather" className="status-weather">
                 {returnIconWeather(weather.hourly.weather_code[night])}

@@ -81,14 +81,16 @@ async function pdf(time) {
   await browser.close();
 }
 
-cron.schedule("13 20 * * *", () => {
-  console.log("crone");
-  pdf(timestamp);
-  setTimeout(() => {
-    console.log("ten ten ten");
-    print
-      .print(`./public/pdf/${timestamp}.pdf`, options)
-      .then((res) => console.log(res))
-      .catch((er) => console.log(er));
-  }, 30000);
-});
+//cron.schedule("57 23 * * *", () => {
+//  console.log("crone");
+//  pdf(timestamp);
+//  setTimeout(() => {
+//    console.log("ten ten ten");
+//    print
+//      .print(`./public/pdf/${timestamp}.pdf`, options)
+//      .then((res) => console.log(res))
+//      .catch((er) => console.log(er));
+//  }, 30000);
+//});
+
+  
