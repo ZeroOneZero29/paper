@@ -93,16 +93,14 @@ export default function News() {
 
   useEffect(() => {
     setElements(newsContainerCurent);
-    //console.log(elements);
-
     if (elements !== undefined) {
-      CheckEl(elements.children[1].children);
+      CheckElement(elements.children[1].children);
     }
   });
 
-  let newResArr = news.map((obj, index) => ({ ...obj, id: index }));
+  let indexElementArr = news.map((obj, index) => ({ ...obj, id: index }));
 
-  function chekArr(el) {
+  function chekedElementArr(el) {
     if (
       el.title !== "..." &&
       el.description !== "..." &&
@@ -111,14 +109,26 @@ export default function News() {
       el.title !== "" &&
       el.description !== ""
     ) {
-      samNewArr.push(el);
+      chekedNewsArr.push(el);
     }
   }
 
-  let samNewArr = [];
-  newResArr.map((obj) => chekArr(obj));
+  let chekedNewsArr = [];
+  indexElementArr.map((obj) => chekedElementArr(obj));
 
-  const listItems = samNewArr.map((date) => (
+  function CheckElement(e) {
+    const cyrillicPattern = /[а-яА-ЯЁё]/;
+    for (let i = 0; i < e.length; i++) {
+      if (e[i].offsetTop + e[i].offsetHeight > 1100) {
+        e[i].style.display = "none";
+      }
+      if (!cyrillicPattern.test(e[i].innerText)) {
+        e[i].style.display = "none";
+      }
+    }
+  }
+
+  const listItemsNews = chekedNewsArr.map((date) => (
     <div id="news_item" key={date.id} className="news_item" ref={myEl}>
       <p id="item_title" className="item_title">
         {date.title}
@@ -130,20 +140,6 @@ export default function News() {
   ));
 
 
-  function CheckEl(e) {
-    console.log(e);
-    const cyrillicPattern = /[а-яА-ЯЁё]/;
-    for (let i = 0; i < e.length; i++) {
-      if (e[i].offsetTop + e[i].offsetHeight > 1100) {
-        e[i].style.display = "none";
-      }
-      if (!cyrillicPattern.test(e[i].innerText)) {
-        e[i].style.display = "none";
-      }
-      //console.log(cyrillicPattern.test(e[i].innerText));
-      //console.log(e[i].innerText);
-    }
-  }
 
 
 
@@ -153,10 +149,9 @@ export default function News() {
       <div className="news-container" ref={newsContainer}>
         <p className="news_title">Новости IT</p>
         <div id="news-block" className="news-block">
-          {listItems}
+          {listItemsNews}
         </div>
       </div>
-      <p className="prod_by">prod. by Zhigadlov</p>
     </div>
   );
 }

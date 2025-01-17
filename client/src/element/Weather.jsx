@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import "../css/Weather.css";
 
 export default function Weather() {
-  const morning = 7;
-  const day = 13;
-  const evening = 19;
-  const night = 23;
+  const morningIndex = 7;
+  const dayIndex = 13;
+  const eveningIndex = 19;
+  const nightIndex = 23;
 
   const [weather, setWeather] = useState([]);
   const [ready, isReady] = useState();
@@ -26,7 +26,7 @@ export default function Weather() {
 
   useEffect(() => {
     if (ready) {
-      console.log(weather.hourly.temperature_2m[day]);
+      console.log(weather.hourly.temperature_2m[dayIndex]);
     }
   }, [ready]);
 
@@ -65,6 +65,8 @@ export default function Weather() {
     }
   }
 
+ 
+
   if (ready) {
     return (
       <div className="weather">
@@ -76,10 +78,10 @@ export default function Weather() {
                 Утро
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[morning]}°С
+                {weather.hourly.temperature_2m[morningIndex]}°С
               </p>
               <div id="status-weather" className="status-weather">
-                {returnIconWeather(weather.hourly.weather_code[morning])}
+                {returnIconWeather(weather.hourly.weather_code[morningIndex])}
               </div>
             </div>
             <div className="weater_card">
@@ -87,10 +89,10 @@ export default function Weather() {
                 День
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[day]}°С
+                {weather.hourly.temperature_2m[dayIndex]}°С
               </p>
               <p id="status-weather" className="status-weather">
-                {returnIconWeather(weather.hourly.weather_code[day])}
+                {returnIconWeather(weather.hourly.weather_code[dayIndex])}
               </p>
             </div>
             <div className="weater_card">
@@ -98,10 +100,10 @@ export default function Weather() {
                 Вечер
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[evening]}°С
+                {weather.hourly.temperature_2m[eveningIndex]}°С
               </p>
               <p id="status-weather" className="status-weather">
-                {returnIconWeather(weather.hourly.weather_code[evening])}
+                {returnIconWeather(weather.hourly.weather_code[eveningIndex])}
               </p>
             </div>
             <div className="weater_card">
@@ -109,10 +111,10 @@ export default function Weather() {
                 Ночь
               </p>
               <p id="status-degrees" className="status-degrees">
-                {weather.hourly.temperature_2m[night]}°С
+                {weather.hourly.temperature_2m[nightIndex]}°С
               </p>
               <p id="status-weather" className="status-weather">
-                {returnIconWeather(weather.hourly.weather_code[night])}
+                {returnIconWeather(weather.hourly.weather_code[nightIndex])}
               </p>
             </div>
           </div>

@@ -18,13 +18,13 @@ export default function Header() {
   ];
 
   let dayName = [
+    "Воскресенье",
     "Понедельник",
     "Вторник",
     "Среда",
     "Четверг",
     "Пятница",
     "Суббота",
-    "Воскресенье",
   ];
   const [calendars, setCalendar] = useState([]);
 
@@ -37,7 +37,6 @@ export default function Header() {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(calendars);
   return (
     <div className="header">
       <div className="header-container">
