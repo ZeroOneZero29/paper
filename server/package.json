@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +26,17 @@
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "puppeteer": "^23.9.0",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "body-parser": "^1.20.3",
+    "cheerio": "^1.0.0",
+    "cron": "^3.5.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "jsdom": "^25.0.1",
+    "moment": "^2.30.1",
+    "node-cron": "^3.0.3",
+    "nodemon": "^3.1.7",
+    "pdf-to-printer": "^5.6.0",
+    "request": "^2.88.2"
   }
 }
