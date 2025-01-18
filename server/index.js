@@ -22,9 +22,8 @@ const options = {
   scale: "noscale",
 };
 
-const time = new Date().toJSON().replace(new RegExp(":", "g"), ".");
-let timestamp = time.slice(0, 10).toString();
-console.log(timestamp);
+const timestamp = moment().format().slice(0, 16)
+
 
 app.get("/quote", function (req, res) {
   const quoteData = newsQuote.getDate.then((result) => res.send(result));
@@ -49,11 +48,18 @@ app.get("/weather", function (req, res) {
   console.log(dataWeather);
 });
 
-app.get("/news", function (req, res) {
+app.get("/news/technology", function (req, res) {
   const dataNews = newsDate
     .AxiosDate()
-    .then((result) => result)
-    .then((ress) => res.send(ress));
+    .then((response) => response)
+    .then((result) => res.send(result));
+  console.log(dataNews);
+});
+
+app.get("/news/business", function (req, res) {
+  const dataNews = newsDate.getBusinessNews()
+    .then((response) => response)
+    .then((result) => res.send(result));
   console.log(dataNews);
 });
 
@@ -81,7 +87,7 @@ async function pdf(time) {
   await browser.close();
 }
 
-cron.schedule("13 20 * * *", () => {
+cron.schedule("02 01 * * *", () => {
   console.log("crone");
   pdf(timestamp);
   setTimeout(() => {
@@ -92,3 +98,8 @@ cron.schedule("13 20 * * *", () => {
       .catch((er) => console.log(er));
   }, 30000);
 });
+
+
+
+
+  

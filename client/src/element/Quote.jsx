@@ -4,7 +4,7 @@ import "../css/Quote.css";
 export default function Quote() {
   const [quote, setQuote] = useState([]);
   const [ready, isReady] = useState();
-  const [len, setLen] = useState();
+  const [lengthArr, setLength] = useState();
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/quote", {
@@ -17,7 +17,7 @@ export default function Quote() {
 
   function getDate(res) {
     setQuote(res);
-    setLen(res.length);
+    setLength(res.length);
     isReady(true);
   }
 
@@ -28,7 +28,7 @@ export default function Quote() {
     return indexArr;
   }
 
-  let arrIndex = numIndex(len);
+  let arrIndex = numIndex(lengthArr);
 
   if (ready) {
     return (

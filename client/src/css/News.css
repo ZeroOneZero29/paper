@@ -1,6 +1,9 @@
 .news {
-  padding-top: 35px;
+  padding-top: 25px;
   margin-right: 50px;
+}
+.news_title_econom{
+  margin-top: 20px;
 }
 .hiden {
   background-color: black;
@@ -9,6 +12,7 @@
 .news-container {
   max-width: 1100px;
   margin: 0 auto;
+  max-height: 500px;
 }
 .news_title {
   font-size: 40px;
@@ -38,4 +42,14 @@
   font-size: 20px;
   text-align: justify;
   width: 1200px;
+}
+
+
+.prod_by {
+  font-family: "Forum";
+  position: absolute;
+  font-size: 20px;
+  top: 1640px;
+  left: 1000px;
+  max-width: 200px;
 }
