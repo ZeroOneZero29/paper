@@ -62,7 +62,7 @@ export default function NewsBusiness() {
     console.log(e);
     const cyrillicPattern = /[а-яА-ЯЁё]/;
     for (let i = 0; i < e.length; i++) {
-      if (e[i].offsetTop + e[i].offsetHeight > 1620) {
+      if (e[i].offsetTop + e[i].offsetHeight > 1550) {
         e[i].style.display = "none";
       }
       if (!cyrillicPattern.test(e[i].innerText)) {

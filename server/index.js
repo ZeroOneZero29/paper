@@ -22,7 +22,7 @@ const options = {
   scale: "noscale",
 };
 
-const timestamp = moment().format().slice(0, 16)
+const timestamp = moment().format().slice(0, 13)
 
 
 app.get("/quote", function (req, res) {
@@ -72,7 +72,10 @@ app.get("/", function (req, res) {
 });
 
 async function pdf(time) {
-  const browser = await puppeter.launch();
+  const browser = await puppeter.launch({
+    headless: 'new',
+    timeout: 1000,
+  });
   const page = await browser.newPage();
 
   const website_url = "http://localhost:3000/";
@@ -90,16 +93,18 @@ async function pdf(time) {
 cron.schedule("02 01 * * *", () => {
   console.log("crone");
   pdf(timestamp);
-  setTimeout(() => {
-    console.log("ten ten ten");
-    print
-      .print(`./public/pdf/${timestamp}.pdf`, options)
-      .then((res) => console.log(res))
-      .catch((er) => console.log(er));
-  }, 30000);
+  //setTimeout(() => {
+  //  console.log("ten ten ten");
+  //  print
+  //    .print(`./public/pdf/${timestamp}.pdf`, options)
+  //    .then((res) => console.log(res))
+  //    .catch((er) => console.log(er));
+  //}, 30000);
 });
 
+console.log(timestamp);
 
+pdf(timestamp)
 
 
   
