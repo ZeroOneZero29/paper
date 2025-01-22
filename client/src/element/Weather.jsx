@@ -27,6 +27,7 @@ export default function Weather() {
   useEffect(() => {
     if (ready) {
       console.log(weather.hourly.temperature_2m[dayIndex]);
+      console.log(weather);
     }
   }, [ready]);
 
@@ -60,12 +61,28 @@ export default function Weather() {
         return <img src="../icon/71.png" alt="" />;
         break;
       case 75:
-        return <img src="../icon/75.png" alt="" />;
+        return <img src="../icon/71.png" alt="" />;
+        break;
+      case 77:
+        return <img src="../icon/71.png" alt="" />;
+        break;
+      case 80:
+        return <img src="../icon/61.png" alt="" />;
+        break;
+      case 81:
+        return <img src="../icon/63.png" alt="" />;
+        break;
+      case 82:
+        return <img src="../icon/65.png" alt="" />;
+        break;
+      case 85:
+        return <img src="../icon/71.png" alt="" />;
+        break;
+      case 86:
+        return <img src="../icon/71.png" alt="" />;
         break;
     }
   }
-
- 
 
   if (ready) {
     return (
