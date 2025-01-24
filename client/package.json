@@ -9,7 +9,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-js-cron": "^5.0.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +41,4 @@
     "react-to-pdf": "^1.0.1",
     "web-vitals": "^4.2.4"
   }
-
 }
