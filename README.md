@@ -1,7 +1,7 @@
 <h1>Проект автоматизированного принтера</h1>
 
 <h3>Схема приложения:</h3>
-<img src="https://github.com/user-attachments/assets/cc00efc1-208e-41c6-bf33-48fb2864f137">
+<img src="https://github.com/user-attachments/assets/57aa2d79-18e4-471b-b416-2e62b77a8614">
 
 
 <h3>Функционал приложения:</h3>
